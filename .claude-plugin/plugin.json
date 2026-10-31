@@ -1,0 +1,10 @@
+{
+  "name": "bhoomi-skill",
+  "version": "0.1.0",
+  "description": "A board of simulated advisers for Indian land and real-estate deals: valuer, CFO, legal and regulatory, a buyer panel of 20-50 investor agents, a red team and a chair that computes the verdict.",
+  "author": {
+    "name": "Dr. Vegi Srinivasa Raghava"
+  },
+  "license": "MIT",
+  "keywords": ["real-estate", "land", "india", "valuation", "cfo", "due-diligence", "multi-agent"]
+}

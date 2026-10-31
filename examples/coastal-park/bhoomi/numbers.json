@@ -1,0 +1,36 @@
+{
+  "deal": "Coastal MSME Park (fictional example)",
+  "currency": "INR",
+  "land": {
+    "gross_acres": 60,
+    "saleable_acres": 40,
+    "encumbered_acres": 4,
+    "note": "4 acres under a revenue restriction are excluded from saleable area"
+  },
+  "comparables": [
+    {"name": "Established state park, 30 km away", "price": 4000, "unit": "inr/sqm", "adjust_pct": -20, "weight": 2,
+     "note": "infrastructure complete, large plots; -20% for 2-year infrastructure lag"},
+    {"name": "Private layout next door", "price": 2800, "unit": "inr/sqyd", "adjust_pct": -5, "weight": 1,
+     "note": "small plots, partly developed"}
+  ],
+  "development": {"cost_inr": 160000000, "months": 24, "start_month": 1, "subsidy_inr": 30000000, "subsidy_month": 24},
+  "sales": {"absorption_months": 36, "start_month": 12, "selling_cost_pct": 3, "plot_price_per_acre_inr": 14000000},
+  "finance": {"discount_rate_pct": 15, "developer_margin_pct": 15},
+  "land_value": {"asking_per_gross_acre_inr": 6000000},
+  "offers": [
+    {"party": "Anchor logistics buyer", "acres": 8, "price_per_acre_inr": 13500000, "includes_infra": true,
+     "payment_schedule": [{"month": 1, "pct": 30}, {"month": 6, "pct": 70}]}
+  ],
+  "stakeholders": [
+    {"name": "Partner A", "stake_pct": 40, "ask_inr": 120000000, "exiting": true},
+    {"name": "Partner B", "stake_pct": 35, "ask_inr": 100000000, "exiting": true},
+    {"name": "Partner C", "stake_pct": 25, "exiting": false}
+  ],
+  "payouts": [
+    {"to": "Partner A", "amount_inr": 120000000, "month": 7},
+    {"to": "Partner B", "amount_inr": 100000000, "month": 18}
+  ],
+  "cash_events": [
+    {"label": "Settlement with earlier developer (levelling costs)", "month": 2, "amount_inr": -15000000}
+  ]
+}

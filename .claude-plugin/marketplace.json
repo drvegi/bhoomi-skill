@@ -1,0 +1,13 @@
+{
+  "name": "bhoomi-skill",
+  "owner": {
+    "name": "Dr. Vegi Srinivasa Raghava"
+  },
+  "plugins": [
+    {
+      "name": "bhoomi-skill",
+      "source": "./",
+      "description": "Simulated advisory board for Indian land and real-estate deals."
+    }
+  ]
+}

@@ -162,7 +162,21 @@ def read_answers(d):
         errs += validate_answer(ans, name)
         answers[ans.get("buyer", name[:-5])] = ans
     missing = sorted(set(cards) - set(answers))
+    errs += price_outliers(answers)
     return cards, answers, errs, missing
+
+
+def price_outliers(answers, factor=4.0):
+    """Flag prices far from the panel median (usually a lakh/crore slip of 10x)."""
+    vals = [(b, k, a[k]) for b, a in answers.items()
+            for k in ("price_per_acre_inr", "walk_away_per_acre_inr")
+            if isinstance(a.get(k), (int, float)) and a[k] > 0]
+    if len(vals) < 3:
+        return []
+    med = statistics.median(v for _, _, v in vals)
+    return [f"{b}.json: {k} {v:,.0f} is more than {factor:g}x away from the panel median "
+            f"{med:,.0f}; check for a lakh/crore slip and re-ask the buyer"
+            for b, k, v in vals if v > med * factor or v < med / factor]
 
 
 def cmd_check(a):

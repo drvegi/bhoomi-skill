@@ -127,6 +127,13 @@ class Panel(unittest.TestCase):
             self.assertEqual(s["interest"], {"yes": 1, "maybe": 1, "no": 1})
             self.assertAlmostEqual(s["interest_rate_pct"], 50.0)
 
+    def test_price_outlier_flagged(self):
+        ans = {f"buyer-{i:02d}": {"price_per_acre_inr": v, "walk_away_per_acre_inr": None}
+               for i, v in enumerate([9500000, 10500000, 11000000, 95000000], 1)}
+        errs = panel.price_outliers(ans)
+        self.assertEqual(len(errs), 1)
+        self.assertIn("buyer-04", errs[0])
+
 
 class Verdict(unittest.TestCase):
     base = {
